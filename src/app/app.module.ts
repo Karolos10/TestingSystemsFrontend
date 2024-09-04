@@ -15,6 +15,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './pages/login/login.component';
@@ -22,6 +23,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { authInterceptorProviders } from './interceptors/auth.interceptor';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,9 @@ import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.co
     LoginComponent,
     HomeComponent,
     DashboardComponent,
-    UserDashboardComponent
+    UserDashboardComponent,
+    ProfileComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +49,8 @@ import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.co
     MatSnackBarModule,
     MatCardModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatListModule
   ],
   providers: [
     provideAnimationsAsync(),
