@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import baseUrl from '../model/heper';
+import { jwtDecode } from 'jwt-decode';
+import { JwtPayload } from '../model/JwtPayload';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +17,7 @@ export class LoginServicesService {
 
   public saveToken(token: any) {
     localStorage.setItem('token', token);
+    return true;
   }
 
   public isLoggedIn() {
@@ -50,10 +53,44 @@ export class LoginServicesService {
     }
   }
 
-  public getUserRole() {
+  /* public getUserRole() {
     let user = this.getUser();
     return user.authorities[0].authority;
+  } */
+
+  /* public getUserRole() {
+    let user = this.getUser();
+    // Verifica si 'user' y 'user.authorities' están definidos
+    if (user && user.authorities && user.authorities.length > 0) {
+      return user.authorities[0].authority;
+    } else {
+      // Devuelve un valor predeterminado o maneja el caso en que no haya roles
+      return 'Rol no disponible';
+    }
+  } */
+
+  public decryptToken(token: string) {
+    return jwtDecode<JwtPayload>(token);
   }
+
+  public getUserRole() {
+    const token = this.getToken();
+    if (token === null) {
+      return token;
+    } else {
+      return this.decryptToken(token).roles;
+    }
+  }
+
+  public getUserId() {
+    const token = this.getToken();
+    if (token === null) {
+      return token;
+    } else {
+      return this.decryptToken(token).idUser;
+    }
+  }
+
 
   public getCurrentUser() {
     return this.httpCliente.get(`${baseUrl}/api/usuarios/usuario-actual`);

@@ -20,6 +20,8 @@ import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { authInterceptorProviders } from './interceptors/auth.interceptor';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { authInterceptorProviders } from './interceptors/auth.interceptor';
     NavbarComponent,
     SignupComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    DashboardComponent,
+    UserDashboardComponent
   ],
   imports: [
     BrowserModule,

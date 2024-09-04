@@ -3,6 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.component';
+import { NormalGuard } from './guards/normal..guard';
 
 const routes: Routes = [
   {
@@ -20,6 +23,17 @@ const routes: Routes = [
     component: LoginComponent,
     pathMatch: 'full'
   },
+  {
+    path: 'admin',
+    component: DashboardComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'user-dashboard',
+    component: UserDashboardComponent,
+    pathMatch: 'full',
+    canActivate: [NormalGuard]
+  }
 ];
 
 @NgModule({
