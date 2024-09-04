@@ -39,10 +39,12 @@ export class LoginComponent implements OnInit {
         if (permissions?.includes('ADMIN')) {
           //dashboard admin
           this.router.navigate(['/admin']);
+          this.loginService.loginStatusSubject.next(true);
         }
         else if (permissions?.includes('NORMAL')) {
           //user dashboard
           this.router.navigate(['/user-dashboard']);
+          this.loginService.loginStatusSubject.next(true);
         }
         else {
           this.loginService.logout();

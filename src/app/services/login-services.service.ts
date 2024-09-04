@@ -3,11 +3,14 @@ import { Injectable } from '@angular/core';
 import baseUrl from '../model/heper';
 import { jwtDecode } from 'jwt-decode';
 import { JwtPayload } from '../model/JwtPayload';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginServicesService {
+
+  public loginStatusSubject = new Subject<boolean>();
 
   constructor(private httpCliente: HttpClient) { }
 

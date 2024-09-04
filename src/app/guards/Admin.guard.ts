@@ -21,11 +21,15 @@ export class AdminGuard implements CanActivate {
         const isLoggedIn = this.loginService.isLoggedIn();
         const isAdmin = this.loginService.getUserRole()?.includes('ADMIN');
 
+        //console.log('isLoggedIn:', isLoggedIn);
+        //console.log('isAdmin:', isAdmin);
+
         if (isLoggedIn && isAdmin) {
             return true;
         }
 
         // Redirige al usuario a la página de inicio de sesión si no está autorizado
+        //console.log('Redirecting to login');
         this.router.navigate(['login']);
         return false;
     }

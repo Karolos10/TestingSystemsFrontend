@@ -17,9 +17,9 @@
         style="margin-right: 150px;" aria-label="Example icon-button with heart icon">
         Cerrar Session
     </a>
-    <button *ngIf="login.isLoggedIn()" mat-button class="example-icon favorite-icon" style="margin-right: 10px;"
-        aria-label="Example icon-button with heart icon">
-        <!-- {{login.getUser().username}} -->
+    <button *ngIf="login.isLoggedIn() && user" mat-button style="margin-right: 10px" class="example-icon favorite-icon"
+        style="margin-right: 10px;" aria-label="Example icon-button with heart icon">
+        {{user.username}}
     </button>
 
     <!-- <button *ngIf="!isLoggedIn" [routerLink]="'/login'" aria-label="Example icon-button with heart icon"
