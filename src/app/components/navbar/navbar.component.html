@@ -4,14 +4,23 @@
     </a>
     <span>Portal de examenes</span>
     <span class="example-spacer"></span>
-    <a [routerLink]="'login'" mat-icon-button class="example-icon favorite-icon" style="margin-right: 150px;"
-        aria-label="Example icon-button with heart icon">
+
+    <a *ngIf="!login.isLoggedIn()" [routerLink]="'login'" mat-icon-button class="example-icon favorite-icon"
+        style="margin-right: 150px;" aria-label="Example icon-button with heart icon">
         Iniciar Session
     </a>
-    <a [routerLink]="'signup'" mat-icon-button class="example-icon favorite-icon" style="margin-right: 55px;"
-        aria-label="Example icon-button with heart icon">
+    <a *ngIf="!login.isLoggedIn()" [routerLink]="'signup'" mat-icon-button class="example-icon favorite-icon"
+        style="margin-right: 55px;" aria-label="Example icon-button with heart icon">
         Registrar
     </a>
+    <a *ngIf="login.isLoggedIn()" (click)="logout()" mat-icon-button class="example-icon favorite-icon"
+        style="margin-right: 150px;" aria-label="Example icon-button with heart icon">
+        Cerrar Session
+    </a>
+    <button *ngIf="login.isLoggedIn()" mat-button class="example-icon favorite-icon" style="margin-right: 10px;"
+        aria-label="Example icon-button with heart icon">
+        <!-- {{login.getUser().username}} -->
+    </button>
 
     <!-- <button *ngIf="!isLoggedIn" [routerLink]="'/login'" aria-label="Example icon-button with heart icon"
         style="margin-right: 10px;" mat-raised-button color="warn">Login</button>
