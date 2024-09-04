@@ -55,5 +55,18 @@ export class LoginServicesService {
     return user.authorities[0].authority;
   }
 
+  public getCurrentUser() {
+    return this.httpCliente.get(`${baseUrl}/api/usuarios/usuario-actual`);
+  }
+
+  /* public getCurrentUser() {
+    const token = this.getToken();
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+
+    return this.httpCliente.get(`${baseUrl}/api/usuarios/usuario-actual`, { headers });
+  } */
+
 
 }

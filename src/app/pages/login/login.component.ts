@@ -25,8 +25,15 @@ export class LoginComponent implements OnInit {
       this.snack.open('Datos incompletos', 'Aceptar', { duration: 5000 });
     }
 
-    this.loginService.login(this.loginData).subscribe((data) => {
+    this.loginService.login(this.loginData).subscribe((data: any) => {
       console.log(data);
+
+      this.loginService.saveToken(data.token);
+      this.loginService.getCurrentUser().subscribe((user: any) => {
+        console.log(user);
+        /* this.loginService.setUser(user);
+        this.snack.open('Bienvenido', 'Aceptar', { duration: 5000 }); */
+      });
     }, (error) => {
       console.log(error);
       this.snack.open('Datos incorrectos', 'Aceptar', { duration: 5000 });
