@@ -1,47 +1,3 @@
-<!-- <mat-card style="margin-left: 10px;">
-    <h1>Detalles de perfil</h1>
-    <mat-card-content>
-        <div class="bootstrap-wrapper">
-            <div class="container">
-                <div class="text-center">
-                    <img src="../../../assets/user.png" alt="profile" class="profile-image">
-                    <h1 class="mt20">Carlos Miguel Rodriguez</h1>
-                </div>
-                <div class="row">
-                    <div class="col-md-10 offset-md-1">
-                        <table class="table text-center">
-                            <tr>
-                                <td>Nombre de usuario</td>
-                                <td>Carlos Miguel Rodriguez Botero</td>
-                            </tr>
-                            <tr>
-                                <td>ID</td>
-                                <td>130000</td>
-                            </tr>
-                            <tr>
-                                <td>Telefono</td>
-                                <td>3155557806</td>
-                            </tr>
-                            <tr>
-                                <td>Rol</td>
-                                <td>Administrador</td>
-                            </tr>
-                            <tr>
-                                <td>Estado</td>
-                                <td>Activo</td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <mat-card-actions class="center-buttons">
-            <button mat-raised-button color="primary">Actualizar</button>
-            <button mat-raised-button color="accent">Compartir</button>
-        </mat-card-actions>
-    </mat-card-content>
-</mat-card> -->
-
 <mat-card style="margin-left: 10px;">
     <h1>Detalles de perfil</h1>
     <mat-card-content>
@@ -49,7 +5,7 @@
             <div class="container">
                 <div class="text-center">
                     <img src="../../../assets/profile.png" alt="profile" class="profile-image">
-                    <h1 class="mt20">Carlos Miguel Rodriguez</h1>
+                    <h1 class="mt20">{{ user.nombre }}{{ user.apellidos }}</h1>
                 </div>
                 <div class="row">
                     <div class="col-md-10 offset-md-1">
@@ -63,23 +19,23 @@
                             <tbody>
                                 <tr>
                                     <td>Nombre de usuario</td>
-                                    <td>Carlos Miguel Rodriguez Botero</td>
+                                    <td>{{ user.username}}</td>
                                 </tr>
                                 <tr>
                                     <td>ID</td>
-                                    <td>130000</td>
+                                    <td>{{user.usuarioId}}</td>
                                 </tr>
                                 <tr>
                                     <td>Telefono</td>
-                                    <td>3155557806</td>
+                                    <td>{{user.telefono}}</td>
                                 </tr>
                                 <tr>
                                     <td>Rol</td>
-                                    <td>Administrador</td>
+                                    <td>{{userRole}}</td>
                                 </tr>
                                 <tr>
                                     <td>Estado</td>
-                                    <td>Activo</td>
+                                    <td>{{user.enable? "Activo": "No activo"}}</td>
                                 </tr>
                             </tbody>
                         </table>

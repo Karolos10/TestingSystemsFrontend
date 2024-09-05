@@ -16,7 +16,7 @@ export class SignupComponent implements OnInit {
     nombre: '',
     apellidos: '',
     email: '',
-    telefono: ''
+    telefono: '',
   }
 
   constructor(private userService: UserServiceService, private snackBar: MatSnackBar) { }

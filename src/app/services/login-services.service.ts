@@ -5,6 +5,7 @@ import { jwtDecode } from 'jwt-decode';
 import { JwtPayload } from '../model/JwtPayload';
 import { Subject } from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -38,7 +39,7 @@ export class LoginServicesService {
     return true;
   }
 
-  public getToken() {
+  public getToken(): string | null {
     return localStorage.getItem('token');
   }
 
@@ -72,17 +73,42 @@ export class LoginServicesService {
     }
   } */
 
-  public decryptToken(token: string) {
+  /* public decryptToken(token: string): JwtPayload{
     return jwtDecode<JwtPayload>(token);
+  } */
+
+  public decryptToken(token: string): JwtPayload {
+    try {
+      const decodedToken = jwtDecode<JwtPayload>(token);
+      console.log('Decoded Token:', decodedToken); // Agrega esto para depuración
+      return decodedToken;
+    } catch (error) {
+      console.error('Error decoding token:', error);
+      return {} as JwtPayload; // Devuelve un objeto vacío en caso de error
+    }
   }
 
-  public getUserRole() {
+  /* public getUserRole() {
     const token = this.getToken();
     if (token === null) {
       return token;
     } else {
       return this.decryptToken(token).roles;
     }
+  } */
+
+  public getUserRole(): string[] {
+    const token = this.getToken();
+    if (token) {
+      try {
+        const decodedToken = this.decryptToken(token);
+        return decodedToken.roles || [];
+      } catch (error) {
+        console.error('Error decoding token', error);
+        return [];
+      }
+    }
+    return [];
   }
 
   public getUserId() {
