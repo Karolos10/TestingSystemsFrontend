@@ -25,6 +25,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     DashboardComponent,
     UserDashboardComponent,
     ProfileComponent,
-    SidebarComponent
+    SidebarComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,

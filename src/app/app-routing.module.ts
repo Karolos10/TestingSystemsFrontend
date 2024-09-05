@@ -7,6 +7,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.component';
 import { NormalGuard } from './guards/normal..guard';
 import { AdminGuard } from './guards/Admin.guard';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 
 const routes: Routes = [
   {
@@ -27,15 +29,24 @@ const routes: Routes = [
   {
     path: 'admin',
     component: DashboardComponent,
-    pathMatch: 'full',
-    canActivate: [AdminGuard]
+    canActivate: [AdminGuard],
+    children: [
+      {
+        path: 'profile',
+        component: ProfileComponent,
+      },
+      {
+        path: '',
+        component: WelcomeComponent,
+      }
+    ]
   },
   {
     path: 'user-dashboard',
     component: UserDashboardComponent,
     pathMatch: 'full',
     canActivate: [NormalGuard]
-  }
+  },
 ];
 
 @NgModule({
