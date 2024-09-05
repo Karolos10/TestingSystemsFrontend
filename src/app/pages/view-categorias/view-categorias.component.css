@@ -1,0 +1,99 @@
+/* Estilos para la tarjeta */
+.card {
+    border: 1px solid #dee2e6;
+    border-radius: 12px;
+    /* Redondea las esquinas de la tarjeta */
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.15);
+    max-width: 100%;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+/* Estilo para el encabezado de la tarjeta */
+.card-header {
+    padding: 15px;
+    text-align: center;
+    border-top-left-radius: 12px;
+    /* Redondea la esquina superior izquierda */
+    border-top-right-radius: 12px;
+    /* Redondea la esquina superior derecha */
+}
+
+.card-header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #212529;
+}
+
+/* Estilo para el contenido de la tarjeta */
+.card-content {
+    padding: 15px;
+}
+
+/* Estilo para la lista de categorías */
+.category-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Estilo para cada ítem de la lista de categorías */
+.category-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.category-item:last-child {
+    border-bottom: none;
+}
+
+/* Estilo para el ícono de la categoría */
+.category-icon {
+    font-size: 24px;
+    margin-right: 15px;
+    color: #007bff;
+    /* Color similar al de los botones */
+}
+
+/* Estilo para los detalles de la categoría */
+.category-details {
+    flex: 1;
+}
+
+/* Estilo para el título de la categoría */
+.category-title {
+    font-weight: bold;
+    color: #212529;
+}
+
+/* Estilo para la descripción de la categoría */
+.category-description {
+    color: #666;
+}
+
+/* Estilo para el área de acciones de la tarjeta */
+.card-actions {
+    padding: 15px;
+    text-align: center;
+    border-bottom-left-radius: 12px;
+    /* Redondea la esquina inferior izquierda */
+    border-bottom-right-radius: 12px;
+    /* Redondea la esquina inferior derecha */
+}
+
+/* Estilo para el botón */
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}

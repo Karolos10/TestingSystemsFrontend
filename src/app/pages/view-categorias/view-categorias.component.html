@@ -1,0 +1,58 @@
+<!-- <mat-card>
+    <mat-list>
+        <div mat-subheader>
+            Todas las categorias
+        </div>
+        <mat-list-item *ngFor='let c of categorias'>
+            <mat-icon mat-list-icon>category</mat-icon>
+            <div mat-line>{{ c.tituloCategoria }}</div>
+            <div mat-line>{{ c.descripcionCategoria }}</div>
+            <mat-divider></mat-divider>
+        </mat-list-item>
+    </mat-list>
+    <div class="container text-center mt20">
+        <button mat-raised-button color="primary">Agregar Categoria</button>
+    </div>
+</mat-card> -->
+
+<!-- <div class="card">
+    <div class="card-header">
+        <h2>Todas las categorías</h2>
+    </div>
+    <div class="card-content">
+        <ul class="category-list">
+            <li *ngFor="let c of categorias" class="category-item">
+                <div class="category-icon">📦</div>
+                <div class="category-details">
+                    <div class="category-title">{{ c.tituloCategoria }}</div>
+                    <div class="category-description">{{ c.descripcionCategoria }}</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="card-actions">
+        <button class="btn-primary">Agregar Categoría</button>
+    </div>
+</div> -->
+
+<div class="card">
+    <div class="card-header">
+        <h1>Todas las Categorías</h1>
+    </div>
+    <div class="card-content">
+        <ul class="category-list">
+            <li *ngFor="let c of categorias" class="category-item">
+                <div class="category-icon">📦</div>
+                <div class="category-details">
+                    <div class="category-title">{{ c.tituloCategoria }}</div>
+                    <div class="category-description">{{ c.descripcionCategoria }}</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="card-actions">
+        <button class="btn-primary">Agregar Categoría</button>
+    </div>
+</div>
+
+
