@@ -12,6 +12,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { ViewCategoriasComponent } from './pages/view-categorias/view-categorias.component';
 import { AddCategoriaComponent } from './pages/add-categoria/add-categoria.component';
 import { ViewExamenesComponent } from './pages/view-examenes/view-examenes.component';
+import { AddExameneComponent } from './pages/add-examene/add-examene.component';
 
 const routes: Routes = [
   {
@@ -53,6 +54,10 @@ const routes: Routes = [
       {
         path: 'examenes',
         component: ViewExamenesComponent,
+      },
+      {
+        path: 'add-examene',
+        component: AddExameneComponent,
       }
     ]
   },

@@ -13,6 +13,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
@@ -29,6 +31,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { ViewCategoriasComponent } from './pages/view-categorias/view-categorias.component';
 import { AddCategoriaComponent } from './pages/add-categoria/add-categoria.component';
 import { ViewExamenesComponent } from './pages/view-examenes/view-examenes.component';
+import { AddExameneComponent } from './pages/add-examene/add-examene.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,8 @@ import { ViewExamenesComponent } from './pages/view-examenes/view-examenes.compo
     WelcomeComponent,
     ViewCategoriasComponent,
     AddCategoriaComponent,
-    ViewExamenesComponent
+    ViewExamenesComponent,
+    AddExameneComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +62,9 @@ import { ViewExamenesComponent } from './pages/view-examenes/view-examenes.compo
     MatCardModule,
     MatToolbarModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatSlideToggleModule,
+    MatSelectModule
   ],
   providers: [
     provideAnimationsAsync(),
