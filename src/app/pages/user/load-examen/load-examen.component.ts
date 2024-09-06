@@ -18,7 +18,7 @@ export class LoadExamenComponent implements OnInit {
       this.catId = params['catId'];
       if (this.catId == 0) {
         console.log("Cargando todos los examenes", this.catId);
-        this.examenServices.listarExamenes().subscribe((data) => {
+        this.examenServices.examenesActivos().subscribe((data) => {
           this.examenes = data;
           console.log(this.examenes);
         }, (error) => {
@@ -26,7 +26,7 @@ export class LoadExamenComponent implements OnInit {
         })
       } else {
         console.log("Cargando examenes de la categoria", this.catId);
-        this.examenServices.listarExamenesPorCategoria(this.catId).subscribe((data) => {
+        this.examenServices.obtenerExamenesActivosDeUnaCategoria(this.catId).subscribe((data) => {
           this.examenes = data;
           console.log(this.examenes);
         }, (error) => {
