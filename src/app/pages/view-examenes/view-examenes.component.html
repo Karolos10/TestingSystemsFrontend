@@ -1,0 +1,41 @@
+<!-- <mat-card class="mt10" *ngFor="let e of examenes">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{e.titulo}}</mat-card-title>
+        <mat-card-subtitle>{{e.categoria.tituloCategoria}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-card-actions>
+            <button mat-flat-button color="primary">Preguntas</button>
+            <button mat-stroked-button color="primary">Puntos máximo {{e.puntosMaximos}}</button>
+            <button mat-stroked-button color="primary">Preguntas {{e.numeroDePreguntas}}</button>
+            <button mat-flat-button color="primary">Actualizar</button>
+            <button mat-flat-button color="primary">Intentos</button>
+        </mat-card-actions>
+    </mat-card-content>
+</mat-card>
+
+<div class="container text-center">
+    <button mat-raised-button color="primary">Agregar Cuestionario</button>
+</div> -->
+
+<mat-card class="mt10" *ngFor="let e of examenes">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{e.titulo}}</mat-card-title>
+        <mat-card-subtitle>{{e.categoria.tituloCategoria}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-card-actions class="card-actions">
+            <button mat-flat-button color="primary">Preguntas</button>
+            <button mat-stroked-button color="primary">Puntos máximo {{e.puntosMaximos}}</button>
+            <button mat-stroked-button color="primary">Preguntas {{e.numeroDePreguntas}}</button>
+            <button mat-flat-button color="primary">Actualizar</button>
+            <button mat-flat-button color="primary">Intentos</button>
+        </mat-card-actions>
+    </mat-card-content>
+</mat-card>
+
+<div class="container text-center mt20">
+    <button mat-raised-button color="primary">Agregar Cuestionario</button>
+</div>

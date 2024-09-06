@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CategoriaService } from '../../services/categoria.service';
 import Swal from 'sweetalert2';
 
@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
   templateUrl: './view-categorias.component.html',
   styleUrl: './view-categorias.component.css'
 })
-export class ViewCategoriasComponent {
+export class ViewCategoriasComponent implements OnInit {
 
   categorias: any = [
 
