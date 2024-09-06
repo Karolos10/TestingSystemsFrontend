@@ -16,4 +16,16 @@ export class PreguntaService {
   public guardarPregunta(pregunta: any) {
     return this.http.post(`${baseUrl}/api/pregunta/`, pregunta);
   }
+
+  public eliminarPregunta(preguntaId: any) {
+    return this.http.delete(`${baseUrl}/api/pregunta/${preguntaId}`);
+  }
+
+  public actualizarPregunta(pregunta: any) {
+    return this.http.put(`${baseUrl}/api/pregunta/`, pregunta);
+  }
+
+  public obtenerPregunta(preguntaId: any) { 
+    return this.http.get(`${baseUrl}/api/pregunta/${preguntaId}`);
+  }
 }
