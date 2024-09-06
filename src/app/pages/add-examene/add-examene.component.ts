@@ -17,7 +17,7 @@ export class AddExameneComponent implements OnInit {
     titulo: '',
     descripcion: '',
     puntosMaximos: '',
-    numeroPreguntas: '',
+    numeroDePreguntas: '',
     activo: true,
     categoria: {
       categoriaId: '',
@@ -72,7 +72,7 @@ export class AddExameneComponent implements OnInit {
         titulo: '',
         descripcion: '',
         puntosMaximos: '',
-        numeroPreguntas: '',
+        numeroDePreguntas: '',
         activo: true,
         categoria: {
           categoriaId: '',

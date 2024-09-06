@@ -30,7 +30,7 @@
             <button mat-flat-button color="primary">Preguntas</button>
             <button mat-stroked-button color="primary">Puntos máximo {{e.puntosMaximos}}</button>
             <button mat-stroked-button color="primary">Preguntas {{e.numeroDePreguntas}}</button>
-            <button mat-flat-button color="primary">Actualizar</button>
+            <button [routerLink]="['/admin/examen/'+e.exameneId]" mat-flat-button color="primary">Actualizar</button>
             <button mat-flat-button color="primary">Intentos</button>
             <button mat-flat-button color="warn" class="ml10" (click)="eliminarExamen(e.exameneId)">Eliminar</button>
         </mat-card-actions>
