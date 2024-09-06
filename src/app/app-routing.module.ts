@@ -15,6 +15,7 @@ import { ViewExamenesComponent } from './pages/view-examenes/view-examenes.compo
 import { AddExameneComponent } from './pages/add-examene/add-examene.component';
 import { ActualizarExamenComponent } from './pages/actualizar-examen/actualizar-examen.component';
 import { ViewExamenPreguntasComponent } from './pages/view-examen-preguntas/view-examen-preguntas.component';
+import { AddPreguntaComponent } from './pages/add-pregunta/add-pregunta.component';
 
 const routes: Routes = [
   {
@@ -68,6 +69,10 @@ const routes: Routes = [
       {
         path: 'ver-preguntas/:exameneId/:titulo',
         component: ViewExamenPreguntasComponent,
+      },
+      {
+        path: 'add-pregunta/:exameneId/:titulo',
+        component: AddPreguntaComponent,
       }
     ]
   },
