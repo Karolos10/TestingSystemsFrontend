@@ -13,7 +13,11 @@ export class ExamenServiceService {
     return this.http.get(`${baseUrl}/api/examen/`);
   }
 
-  public agregarExamen(examen: any) { 
+  public agregarExamen(examen: any) {
     return this.http.post(`${baseUrl}/api/examen/`, examen);
+  }
+
+  public eliminarExamen(exameneId: any) {
+    return this.http.delete(`${baseUrl}/api/examen/${exameneId}`)
   }
 }

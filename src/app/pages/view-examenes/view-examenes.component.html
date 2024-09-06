@@ -32,6 +32,7 @@
             <button mat-stroked-button color="primary">Preguntas {{e.numeroDePreguntas}}</button>
             <button mat-flat-button color="primary">Actualizar</button>
             <button mat-flat-button color="primary">Intentos</button>
+            <button mat-flat-button color="warn" class="ml10" (click)="eliminarExamen(e.exameneId)">Eliminar</button>
         </mat-card-actions>
     </mat-card-content>
 </mat-card>
