@@ -27,7 +27,8 @@
     </mat-card-header>
     <mat-card-content>
         <mat-card-actions class="card-actions">
-            <button mat-flat-button color="primary">Preguntas</button>
+            <button [routerLink]="['/admin/ver-preguntas/'+e.exameneId+'/'+e.titulo]" mat-flat-button
+                color="primary">Preguntas</button>
             <button mat-stroked-button color="primary">Puntos máximo {{e.puntosMaximos}}</button>
             <button mat-stroked-button color="primary">Preguntas {{e.numeroDePreguntas}}</button>
             <button [routerLink]="['/admin/examen/'+e.exameneId]" mat-flat-button color="primary">Actualizar</button>

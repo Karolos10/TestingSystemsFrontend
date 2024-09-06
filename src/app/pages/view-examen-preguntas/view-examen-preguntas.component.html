@@ -1,0 +1,35 @@
+<h1>Preguntas de {{ titulo }}</h1>
+<div class="nootstrap-wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <mat-card *ngFor="let p of preguntas; let i = index" class="mt20">
+                <mat-card-content>
+                    <p>
+                        <b>{{ i + 1 }}</b>
+                        <span class="ml20" [innerHTML]="p.contenidoPregunta"></span>
+                    </p>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>1)<b> {{p.opcion1}} </b></p>
+                            </div>
+                            <div class="col-md-6">
+                                <p>2)<b> {{p.opcion2}} </b></p>
+                            </div>
+                            <div class="col-md-6">
+                                <p>3)<b> {{p.opcion3}} </b></p>
+                            </div>
+                            <div class="col-md-6">
+                                <p>4)<b> {{p.opcion4}} </b></p>
+                            </div>
+                        </div>
+                        <mat-divider></mat-divider>
+                        <p class="mt20">
+                            <b>Respuesta Correcta : {{p.respuesta}}</b>
+                        </p>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

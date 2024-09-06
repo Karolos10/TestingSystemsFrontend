@@ -33,6 +33,7 @@ import { AddCategoriaComponent } from './pages/add-categoria/add-categoria.compo
 import { ViewExamenesComponent } from './pages/view-examenes/view-examenes.component';
 import { AddExameneComponent } from './pages/add-examene/add-examene.component';
 import { ActualizarExamenComponent } from './pages/actualizar-examen/actualizar-examen.component';
+import { ViewExamenPreguntasComponent } from './pages/view-examen-preguntas/view-examen-preguntas.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { ActualizarExamenComponent } from './pages/actualizar-examen/actualizar-
     AddCategoriaComponent,
     ViewExamenesComponent,
     AddExameneComponent,
-    ActualizarExamenComponent
+    ActualizarExamenComponent,
+    ViewExamenPreguntasComponent
   ],
   imports: [
     BrowserModule,
