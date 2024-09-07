@@ -6,29 +6,29 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-instrucciones',
   templateUrl: './instrucciones.component.html',
-  styleUrl: './instrucciones.component.css'
+  styleUrl: './instrucciones.component.css',
 })
 export class InstruccionesComponent implements OnInit {
-
   exameneId: any;
   examenes: any = new Object();
-
 
   constructor(
     private examenService: ExamenServiceService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-
     this.exameneId = this.route.snapshot.params['exameneId'];
-    //console.log('Examene ID:', this.exameneId);
-    this.examenService.obtenerExamen(this.exameneId).subscribe((data: any) => {
-      console.log(data);
-      this.examenes = data;
-    }, (error) => {
-      console.log(error);
-    })
+    this.examenService.obtenerExamen(this.exameneId).subscribe(
+      (data: any) => {
+        console.log(data);
+        this.examenes = data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
   empezarExamen() {
@@ -37,7 +37,7 @@ export class InstruccionesComponent implements OnInit {
       showDenyButton: true,
       confirmButtonText: `Si`,
       denyButtonText: `No`,
-      icon: 'info'
+      icon: 'info',
     }).then((result) => {
       if (result.isConfirmed) {
         console.log(this.exameneId);
@@ -45,7 +45,6 @@ export class InstruccionesComponent implements OnInit {
       } else if (result.isDenied) {
         Swal.fire('No se ha iniciado el examen', '', 'info');
       }
-    })
+    });
   }
-
 }

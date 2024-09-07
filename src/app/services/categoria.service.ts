@@ -4,11 +4,10 @@ import baseUrl from '../model/heper';
 import { Categoria } from '../model/categoria';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CategoriaService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   public listarCategorias() {
     return this.http.get(`${baseUrl}/api/categorias/`);

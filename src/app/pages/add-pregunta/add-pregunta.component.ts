@@ -6,10 +6,9 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-add-pregunta',
   templateUrl: './add-pregunta.component.html',
-  styleUrl: './add-pregunta.component.css'
+  styleUrl: './add-pregunta.component.css',
 })
 export class AddPreguntaComponent implements OnInit {
-
   exameneId: any;
   titulo: any;
   pregunta: any = {
@@ -19,10 +18,13 @@ export class AddPreguntaComponent implements OnInit {
     opcion2: '',
     opcion3: '',
     opcion4: '',
-    respuesta: ''
+    respuesta: '',
   };
 
-  constructor(private route: ActivatedRoute, private preguntaService: PreguntaService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private preguntaService: PreguntaService
+  ) {}
 
   ngOnInit(): void {
     this.exameneId = this.route.snapshot.params['exameneId'];
@@ -31,34 +33,45 @@ export class AddPreguntaComponent implements OnInit {
   }
 
   formSubmit() {
-    if (this.pregunta.contenidoPregunta.trim() == '' || this.pregunta.contenidoPregunta == null ||
-      this.pregunta.opcion1.trim() == '' || this.pregunta.opcion1 == null ||
-      this.pregunta.opcion2.trim() == '' || this.pregunta.opcion2 == null ||
-      this.pregunta.opcion3.trim() == '' || this.pregunta.opcion3 == null ||
-      this.pregunta.opcion4.trim() == '' || this.pregunta.opcion4 == null ||
-      this.pregunta.respuesta.trim() == '' || this.pregunta.respuesta == null) {
+    if (
+      this.pregunta.contenidoPregunta.trim() == '' ||
+      this.pregunta.contenidoPregunta == null ||
+      this.pregunta.opcion1.trim() == '' ||
+      this.pregunta.opcion1 == null ||
+      this.pregunta.opcion2.trim() == '' ||
+      this.pregunta.opcion2 == null ||
+      this.pregunta.opcion3.trim() == '' ||
+      this.pregunta.opcion3 == null ||
+      this.pregunta.opcion4.trim() == '' ||
+      this.pregunta.opcion4 == null ||
+      this.pregunta.respuesta.trim() == '' ||
+      this.pregunta.respuesta == null
+    ) {
       alert('Todos los campos son requeridos');
       return;
     }
 
-    this.preguntaService.guardarPregunta(this.pregunta).subscribe((data: any) => {
-      console.log(data);
-      Swal.fire({
-        title: 'Pregunta Registrada',
-        text: 'La pregunta se ha registrado correctamente',
-        icon: 'success',
-        confirmButtonText: 'Aceptar'
-      }).then(() => {
-        window.location.href = `admin/add-pregunta/${this.exameneId}/${this.titulo}`;
-      })
-    }, (error) => {
-      console.log(error);
-      Swal.fire({
-        title: 'Error',
-        text: 'Hay un error al cargar la pregunta',
-        icon: 'error',
-        confirmButtonText: 'Aceptar'
-      });
-    });
+    this.preguntaService.guardarPregunta(this.pregunta).subscribe(
+      (data: any) => {
+        console.log(data);
+        Swal.fire({
+          title: 'Pregunta Registrada',
+          text: 'La pregunta se ha registrado correctamente',
+          icon: 'success',
+          confirmButtonText: 'Aceptar',
+        }).then(() => {
+          window.location.href = `admin/add-pregunta/${this.exameneId}/${this.titulo}`;
+        });
+      },
+      (error) => {
+        console.log(error);
+        Swal.fire({
+          title: 'Error',
+          text: 'Hay un error al cargar la pregunta',
+          icon: 'error',
+          confirmButtonText: 'Aceptar',
+        });
+      }
+    );
   }
 }

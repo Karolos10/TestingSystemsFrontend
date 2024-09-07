@@ -7,10 +7,9 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-start',
   templateUrl: './start.component.html',
-  styleUrl: './start.component.css'
+  styleUrl: './start.component.css',
 })
 export class StartComponent implements OnInit {
-
   exameneId: any;
   preguntas: any;
   puntosConseguidos = 0;
@@ -23,7 +22,8 @@ export class StartComponent implements OnInit {
   constructor(
     private locationSt: LocationStrategy,
     private route: ActivatedRoute,
-    private preguntaService: PreguntaService) { }
+    private preguntaService: PreguntaService
+  ) {}
 
   ngOnInit(): void {
     this.prevenirElBotonDeRetroceso();
@@ -33,24 +33,30 @@ export class StartComponent implements OnInit {
   }
 
   cargarPreguntas() {
-    this.preguntaService.listarPreguntasDelExamenPrueba(this.exameneId).subscribe(
-      (data: any) => {
-        console.log(data);
-        this.preguntas = data;
+    this.preguntaService
+      .listarPreguntasDelExamenPrueba(this.exameneId)
+      .subscribe(
+        (data: any) => {
+          console.log(data);
+          this.preguntas = data;
 
-        this.timer = this.preguntas.length * 2 * 60;
+          this.timer = this.preguntas.length * 2 * 60;
 
-        this.preguntas.forEach((p: any) => {
-          p['respuesta'] = '';
-        })
-        console.log(this.preguntas);
-        this.iniciarTemporizador();
-      },
-      (error) => {
-        console.log(error);
-        Swal.fire('Error', 'Error al cargar las preguntas de la prueba', 'error');
-      }
-    )
+          this.preguntas.forEach((p: any) => {
+            p['respuesta'] = '';
+          });
+          console.log(this.preguntas);
+          this.iniciarTemporizador();
+        },
+        (error) => {
+          console.log(error);
+          Swal.fire(
+            'Error',
+            'Error al cargar las preguntas de la prueba',
+            'error'
+          );
+        }
+      );
   }
 
   iniciarTemporizador() {
@@ -61,15 +67,14 @@ export class StartComponent implements OnInit {
       } else {
         this.timer--;
       }
-    }, 1000)
+    }, 1000);
   }
-
 
   prevenirElBotonDeRetroceso() {
     history.pushState(null, null!, location.href);
     this.locationSt.onPopState(() => {
       history.pushState(null, null!, location.href);
-    })
+    });
   }
 
   enviarCuestionario() {
@@ -78,32 +83,21 @@ export class StartComponent implements OnInit {
       showCancelButton: true,
       cancelButtonText: 'Cancelar',
       confirmButtonText: 'Enviar',
-      icon: 'info'
+      icon: 'info',
     }).then((e) => {
       if (e.isConfirmed) {
         this.evaluarExamen();
       }
-    })
+    });
   }
 
   evaluarExamen() {
-    /* this.preguntaService.evaluarExamen(this.preguntas).subscribe(
-      (data: any) => {
-        console.log(data);
-        this.puntosConseguidos = data.puntosMaximos;
-        this.respuestasCorrectas = data.respuestasCorrectas;
-        this.intentos = data.intentos;
-        this.esEnviado = true;
-      },
-      (error) => {
-        console.log(error);
-      }
-    ) */
     this.esEnviado = true;
     this.preguntas.forEach((p: any) => {
       if (p.respuesta == p.respuesta) {
         this.respuestasCorrectas++;
-        let puntos = this.preguntas[0].examen.puntosMaximos / this.preguntas.length;
+        let puntos =
+          this.preguntas[0].examen.puntosMaximos / this.preguntas.length;
         this.puntosConseguidos += puntos;
       }
 
@@ -112,9 +106,9 @@ export class StartComponent implements OnInit {
       }
     });
 
-    console.log("Respuestas correctas : " + this.respuestasCorrectas);
-    console.log("Puntos conseguidos : " + this.puntosConseguidos);
-    console.log("Intentos : " + this.intentos);
+    console.log('Respuestas correctas : ' + this.respuestasCorrectas);
+    console.log('Puntos conseguidos : ' + this.puntosConseguidos);
+    console.log('Intentos : ' + this.intentos);
     console.log(this.preguntas);
   }
 
@@ -127,5 +121,4 @@ export class StartComponent implements OnInit {
   imprimirPagina() {
     window.print();
   }
-
 }

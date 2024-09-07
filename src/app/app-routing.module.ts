@@ -25,17 +25,17 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'signup',
     component: SignupComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'login',
     component: LoginComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'admin',
@@ -81,8 +81,8 @@ const routes: Routes = [
       {
         path: 'actualizar-pregunta/:preguntaId',
         component: ActualizarPreguntaComponent,
-      }
-    ]
+      },
+    ],
   },
   {
     path: 'user-dashboard',
@@ -91,23 +91,23 @@ const routes: Routes = [
     children: [
       {
         path: ':catId',
-        component: LoadExamenComponent
+        component: LoadExamenComponent,
       },
       {
         path: 'instrucciones/:exameneId',
-        component: InstruccionesComponent
-      }
-    ]
+        component: InstruccionesComponent,
+      },
+    ],
   },
   {
     path: 'start/:exameneId',
     component: StartComponent,
-    canActivate: [NormalGuard]
-  }
+    canActivate: [NormalGuard],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -1,63 +1,52 @@
-
-.profile-image{
-    max-width: 150px;
-    max-height: 150px;
-    border: 2px solid gainsboro;
-    border-radius: 50%;
+.profile-image {
+  max-width: 150px;
+  max-height: 150px;
+  border: 2px solid gainsboro;
+  border-radius: 50%;
 }
 
-.table{
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 1rem;
-    color: #212529;
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  color: #212529;
 }
 
-.table tr td{
-    /* padding: 15px, 10px; */
-    padding: 1rem;
-    vertical-align: top;
-    border: 0.5px solid gainsboro;
+.table tr td {
+  padding: 1rem;
+  vertical-align: top;
+  border: 0.5px solid gainsboro;
 }
 
 .table thead th {
-    vertical-align: bottom;
-    border-bottom: 2px solid #dee2e6;
-    background-color: #f8f9fa;
+  vertical-align: bottom;
+  border-bottom: 2px solid #dee2e6;
+  background-color: #f8f9fa;
 }
 
 .table tbody tr:nth-of-type(odd) {
-    background-color: #f9f9f9;
+  background-color: #f9f9f9;
 }
 
-/* Estilo para las filas al pasar el cursor sobre ellas */
 .table tbody tr:hover {
-    background-color: #e9ecef;
+  background-color: #e9ecef;
 }
 
-/* Estilo para las celdas de la tabla */
 .table td {
-    text-align: center;
+  text-align: center;
 }
 
-/* Agregar borde a la tabla */
 .table {
-    border: 1px solid #dee2e6;
-    border-radius: .25rem;
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
 }
 
-/* Agregar sombra a la tabla */
 .table {
-    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
-
-/* mat-card-actions {
-    display: flex;
-    justify-content: center;
-} */
 
 .center-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }

@@ -7,52 +7,57 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-categoria',
   templateUrl: './add-categoria.component.html',
-  styleUrl: './add-categoria.component.css'
+  styleUrl: './add-categoria.component.css',
 })
 export class AddCategoriaComponent {
-
   categoria: Categoria = {
     tituloCategoria: '',
-    descripcionCategoria: ''
-  }
+    descripcionCategoria: '',
+  };
 
-  constructor(private categoriaService: CategoriaService, private router: Router) { }
+  constructor(
+    private categoriaService: CategoriaService,
+    private router: Router
+  ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   formSubmit(): void {
-    if (this.categoria.tituloCategoria.trim() == '' || this.categoria.tituloCategoria == null) {
+    if (
+      this.categoria.tituloCategoria.trim() == '' ||
+      this.categoria.tituloCategoria == null
+    ) {
       Swal.fire({
         title: 'Error',
         text: 'El titulo es requerido',
         icon: 'error',
-        confirmButtonText: 'Aceptar'
+        confirmButtonText: 'Aceptar',
       });
       return;
     }
-    this.categoriaService.guardarCategoria(this.categoria).subscribe((data: any) => {
-      this.categoria.tituloCategoria = '';
-      this.categoria.descripcionCategoria = '';
-      console.log("Categoria guardada: ", data);
-      Swal.fire({
-        title: 'Categoria Registrada',
-        text: 'La categoria se ha registrado correctamente',
-        icon: 'success',
-        confirmButtonText: 'Aceptar'
-      });
+    this.categoriaService.guardarCategoria(this.categoria).subscribe(
+      (data: any) => {
+        this.categoria.tituloCategoria = '';
+        this.categoria.descripcionCategoria = '';
+        console.log('Categoria guardada: ', data);
+        Swal.fire({
+          title: 'Categoria Registrada',
+          text: 'La categoria se ha registrado correctamente',
+          icon: 'success',
+          confirmButtonText: 'Aceptar',
+        });
 
-      this.router.navigate(['/admin/categorias']);
-    }, error => {
-      console.log(error);
-      Swal.fire({
-        title: 'Error',
-        text: 'Hay un error al registrar las categorias',
-        icon: 'error',
-        confirmButtonText: 'Aceptar'
-      });
-    })
+        this.router.navigate(['/admin/categorias']);
+      },
+      (error) => {
+        console.log(error);
+        Swal.fire({
+          title: 'Error',
+          text: 'Hay un error al registrar las categorias',
+          icon: 'error',
+          confirmButtonText: 'Aceptar',
+        });
+      }
+    );
   }
-
-
 }

@@ -3,11 +3,10 @@ import { Injectable } from '@angular/core';
 import baseUrl from '../model/heper';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ExamenServiceService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   public listarExamenes() {
     return this.http.get(`${baseUrl}/api/examen/`);
@@ -18,7 +17,7 @@ export class ExamenServiceService {
   }
 
   public eliminarExamen(exameneId: any) {
-    return this.http.delete(`${baseUrl}/api/examen/${exameneId}`)
+    return this.http.delete(`${baseUrl}/api/examen/${exameneId}`);
   }
 
   public obtenerExamen(exameneId: any) {
@@ -29,7 +28,7 @@ export class ExamenServiceService {
     return this.http.put(`${baseUrl}/api/examen/`, examen);
   }
 
-  public listarExamenesPorCategoria(categoriaId: any) { 
+  public listarExamenesPorCategoria(categoriaId: any) {
     return this.http.get(`${baseUrl}/api/examen/categoria/${categoriaId}`);
   }
 
@@ -37,7 +36,9 @@ export class ExamenServiceService {
     return this.http.get(`${baseUrl}/api/examen/activo`);
   }
 
-  public obtenerExamenesActivosDeUnaCategoria(categoriaId: any) { 
-    return this.http.get(`${baseUrl}/api/examen/categoria/activo/${categoriaId}`);
+  public obtenerExamenesActivosDeUnaCategoria(categoriaId: any) {
+    return this.http.get(
+      `${baseUrl}/api/examen/categoria/activo/${categoriaId}`
+    );
   }
 }

@@ -19,7 +19,7 @@
         <button mat-list-item routerLink="/admin/add-examene">
             <mat-icon mat-list-icon>add</mat-icon> Agregar cuestionario
         </button>
-        <button mat-list-item routerLink="/admin/profile">
+        <button (click)="logout()" mat-list-item>
             <mat-icon mat-list-icon>logout</mat-icon> Salir
         </button>
     </mat-action-list>

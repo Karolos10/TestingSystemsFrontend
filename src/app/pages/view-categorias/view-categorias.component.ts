@@ -5,15 +5,12 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-view-categorias',
   templateUrl: './view-categorias.component.html',
-  styleUrl: './view-categorias.component.css'
+  styleUrl: './view-categorias.component.css',
 })
 export class ViewCategoriasComponent implements OnInit {
+  categorias: any = [];
 
-  categorias: any = [
-
-  ]
-
-  constructor(private categoriaService: CategoriaService) { }
+  constructor(private categoriaService: CategoriaService) {}
 
   ngOnInit() {
     this.categoriaService.listarCategorias().subscribe(
@@ -25,8 +22,6 @@ export class ViewCategoriasComponent implements OnInit {
         console.error(error);
         Swal.fire('Error', 'Error al cargar las categorias', 'error');
       }
-    )
+    );
   }
-
-
 }

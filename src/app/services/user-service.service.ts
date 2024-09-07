@@ -3,11 +3,10 @@ import { Injectable } from '@angular/core';
 import baseUrl from '../model/heper';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserServiceService {
-
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
   public añadirUsuario(user: any) {
     return this.httpClient.post(`${baseUrl}/auth/signup`, user);

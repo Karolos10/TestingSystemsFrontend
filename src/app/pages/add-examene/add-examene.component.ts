@@ -7,11 +7,10 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-examene',
   templateUrl: './add-examene.component.html',
-  styleUrl: './add-examene.component.css'
+  styleUrl: './add-examene.component.css',
 })
 export class AddExameneComponent implements OnInit {
-
-  categorias: any = []
+  categorias: any = [];
 
   examenData = {
     titulo: '',
@@ -21,36 +20,32 @@ export class AddExameneComponent implements OnInit {
     activo: true,
     categoria: {
       categoriaId: '',
-    }
-  }
+    },
+  };
 
   constructor(
     private categoriaService: CategoriaService,
     private examenService: ExamenServiceService,
-    private router: Router) { }
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-
-    this.categoriaService.listarCategorias().subscribe((data: any) => {
-      this.categorias = data;
-      console.log(this.categorias);
-      /* Swal.fire({
-        title: 'Examen Registrado',
-        text: 'El examen se ha registrado correctamente',
-        icon: 'success',
-        confirmButtonText: 'Aceptar'
-      }); */
-    }, (error) => {
-      console.log(error);
-      Swal.fire({
-        title: 'Error',
-        text: 'Hay un error cargar los datos',
-        icon: 'error',
-        confirmButtonText: 'Aceptar'
-      });
-      Swal.fire('Error', 'Error al cargar las categorias', 'error');
-    })
-
+    this.categoriaService.listarCategorias().subscribe(
+      (data: any) => {
+        this.categorias = data;
+        console.log(this.categorias);
+      },
+      (error) => {
+        console.log(error);
+        Swal.fire({
+          title: 'Error',
+          text: 'Hay un error cargar los datos',
+          icon: 'error',
+          confirmButtonText: 'Aceptar',
+        });
+        Swal.fire('Error', 'Error al cargar las categorias', 'error');
+      }
+    );
   }
 
   guardarCuestionario() {
@@ -60,34 +55,36 @@ export class AddExameneComponent implements OnInit {
       return;
     }
 
-    this.examenService.agregarExamen(this.examenData).subscribe((data: any) => {
-      console.log(data);
-      Swal.fire({
-        title: 'Examen Registrado',
-        text: 'El examen se ha registrado correctamente',
-        icon: 'success',
-        confirmButtonText: 'Aceptar'
-      });
-      this.examenData = {
-        titulo: '',
-        descripcion: '',
-        puntosMaximos: '',
-        numeroDePreguntas: '',
-        activo: true,
-        categoria: {
-          categoriaId: '',
-        }
+    this.examenService.agregarExamen(this.examenData).subscribe(
+      (data: any) => {
+        console.log(data);
+        Swal.fire({
+          title: 'Examen Registrado',
+          text: 'El examen se ha registrado correctamente',
+          icon: 'success',
+          confirmButtonText: 'Aceptar',
+        });
+        this.examenData = {
+          titulo: '',
+          descripcion: '',
+          puntosMaximos: '',
+          numeroDePreguntas: '',
+          activo: true,
+          categoria: {
+            categoriaId: '',
+          },
+        };
+        this.router.navigate(['/admin/examenes']);
+      },
+      (error) => {
+        console.log(error);
+        Swal.fire({
+          title: 'Error',
+          text: 'Hay un error al registrar los examenes',
+          icon: 'error',
+          confirmButtonText: 'Aceptar',
+        });
       }
-      this.router.navigate(['/admin/examenes']);
-    }, (error) => {
-      console.log(error);
-      Swal.fire({
-        title: 'Error',
-        text: 'Hay un error al registrar los examenes',
-        icon: 'error',
-        confirmButtonText: 'Aceptar'
-      });
-    })
+    );
   }
-
 }

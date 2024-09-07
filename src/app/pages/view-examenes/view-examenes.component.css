@@ -1,25 +1,19 @@
-.example-header-image{
-    background-image: url('../../../assets/testing.png');
-    background-size: cover;
+.example-header-image {
+  background-image: url("../../../assets/testing.png");
+  background-size: cover;
 }
 
-/* Espaciado entre los botones en mat-card-actions */
 .card-actions {
-    display: flex;
-    flex-wrap: wrap;
-    /* Permite que los botones se ajusten si no caben en una línea */
-    gap: 10px;
-    /* Espacio entre los botones */
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 10px;
 }
 
-/* Espaciado adicional para el botón de Agregar Cuestionario */
 .container.text-center.mt20 {
-    margin-top: 30px;
-    /* Ajusta el espacio arriba del botón */
+  margin-top: 30px;
 }
 
-/* Opcional: Ajusta el padding y el border-radius de los botones para que coincidan con los estilos generales */
 button {
-    border-radius: 4px;
-    /* Redondea las esquinas del botón */
+  border-radius: 4px;
 }

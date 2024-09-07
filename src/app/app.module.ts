@@ -41,7 +41,7 @@ import { SidebarComponent as UserSidebar } from './pages/user/sidebar/sidebar.co
 import { LoadExamenComponent } from './pages/user/load-examen/load-examen.component';
 import { InstruccionesComponent } from './pages/user/instrucciones/instrucciones.component';
 import { StartComponent } from './pages/user/start/start.component';
-import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from "ngx-ui-loader";
+import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from 'ngx-ui-loader';
 
 @NgModule({
   declarations: [
@@ -66,7 +66,7 @@ import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from "ngx-ui-loader";
     UserSidebar,
     LoadExamenComponent,
     InstruccionesComponent,
-    StartComponent
+    StartComponent,
   ],
   imports: [
     BrowserModule,
@@ -86,13 +86,10 @@ import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from "ngx-ui-loader";
     MatProgressSpinnerModule,
     NgxUiLoaderModule,
     NgxUiLoaderHttpModule.forRoot({
-      showForeground: true
-    })
+      showForeground: true,
+    }),
   ],
-  providers: [
-    provideAnimationsAsync(),
-    authInterceptorProviders
-  ],
-  bootstrap: [AppComponent]
+  providers: [provideAnimationsAsync(), authInterceptorProviders],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
