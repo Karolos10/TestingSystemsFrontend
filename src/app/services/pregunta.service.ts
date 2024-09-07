@@ -25,7 +25,15 @@ export class PreguntaService {
     return this.http.put(`${baseUrl}/api/pregunta/`, pregunta);
   }
 
-  public obtenerPregunta(preguntaId: any) { 
+  public obtenerPregunta(preguntaId: any) {
     return this.http.get(`${baseUrl}/api/pregunta/${preguntaId}`);
+  }
+
+  public listarPreguntasDelExamenPrueba(exameneId: any) {
+    return this.http.get(`${baseUrl}/api/pregunta/examen/todos/${exameneId}`);
+  }
+
+  public evaluarExamen(preguntas: any) {
+    return this.http.post(`${baseUrl}/api/pregunta/evaluar-examen`, preguntas);
   }
 }

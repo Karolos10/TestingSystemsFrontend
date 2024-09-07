@@ -17,7 +17,7 @@
                         <p>{{ e.descripcion }}</p>
                         <mat-card-actions>
                             <button [routerLink]="['/user-dashboard/instrucciones/'+e.exameneId]" mat-button color="primary">Ver</button>
-                            <button mat-button color="accent">Empezar</button>
+                            <button (click) = "empezarExamen()"  mat-button color="accent">Empezar</button>
                             <button mat-button color="accent">Preguntas {{e.numeroDePreguntas}}</button>
                             <button mat-button color="accent">P.M : {{e.puntosMaximos}}</button>
                         </mat-card-actions>

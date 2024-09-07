@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ExamenServiceService } from '../../../services/examen-service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-load-examen',
@@ -9,9 +10,15 @@ import { ExamenServiceService } from '../../../services/examen-service.service';
 })
 export class LoadExamenComponent implements OnInit {
 
+  exameneId: any;
+
   catId: any;
   examenes: any;
-  constructor(private route: ActivatedRoute, private examenServices: ExamenServiceService) { }
+  
+  constructor(
+    private route: ActivatedRoute,
+    private examenServices: ExamenServiceService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
@@ -32,6 +39,23 @@ export class LoadExamenComponent implements OnInit {
         }, (error) => {
           console.log(error);
         })
+      }
+    })
+  }
+
+  empezarExamen() {
+    Swal.fire({
+      title: '¿Estás seguro de empezar el examen?',
+      showDenyButton: true,
+      confirmButtonText: `Si`,
+      denyButtonText: `No`,
+      icon: 'info'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        console.log(this.exameneId);
+        this.router.navigate(['/start/' + this.exameneId]);
+      } else if (result.isDenied) {
+        Swal.fire('No se ha iniciado el examen', '', 'info');
       }
     })
   }
