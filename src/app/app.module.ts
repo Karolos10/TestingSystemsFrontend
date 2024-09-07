@@ -37,7 +37,9 @@ import { ViewExamenPreguntasComponent } from './pages/view-examen-preguntas/view
 import { AddPreguntaComponent } from './pages/add-pregunta/add-pregunta.component';
 import { ActualizarPreguntaComponent } from './pages/actualizar-pregunta/actualizar-pregunta.component';
 import { SidebarComponent as UserSidebar } from './pages/user/sidebar/sidebar.component';
-import { LoadExamenComponent } from './pages/user/load-examen/load-examen.component'
+import { LoadExamenComponent } from './pages/user/load-examen/load-examen.component';
+import { InstruccionesComponent } from './pages/user/instrucciones/instrucciones.component';
+import { StartComponent } from './pages/user/start/start.component'
 
 @NgModule({
   declarations: [
@@ -60,7 +62,9 @@ import { LoadExamenComponent } from './pages/user/load-examen/load-examen.compon
     AddPreguntaComponent,
     ActualizarPreguntaComponent,
     UserSidebar,
-    LoadExamenComponent
+    LoadExamenComponent,
+    InstruccionesComponent,
+    StartComponent
   ],
   imports: [
     BrowserModule,
